@@ -1,7 +1,5 @@
 package cs.skku.edu.mrdang.domain.user.entity;
 
-import cs.skku.edu.mrdang.domain.enrollment.entity.LectureEnrollment;
-import cs.skku.edu.mrdang.domain.enrollment.entity.RoadmapEnrollment;
 import cs.skku.edu.mrdang.security.sso.SSOUser;
 import cs.skku.edu.mrdang.util.BaseTimeEntity;
 import jakarta.persistence.*;

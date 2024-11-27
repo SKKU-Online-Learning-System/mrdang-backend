@@ -1,0 +1,8 @@
+.+/roadmaps/{roadmapId}/unlike+
+|===
+|Parameter|Description
+
+|`+roadmapId+`
+|대상 로드맵의 ID
+
+|===

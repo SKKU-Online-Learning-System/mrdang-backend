@@ -1,0 +1,52 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 1220
+
+{
+  "id" : 1,
+  "author" : {
+    "id" : 1,
+    "name" : "이윤성",
+    "glsId" : "tjd1024",
+    "role" : "STUDENT"
+  },
+  "title" : "화상영어서비스 개발자가 전해주는 백엔드 인턴 이야기",
+  "description" : "성균관대학교 해외 ICT 인턴십 후기입니다.",
+  "content" : "인턴 준비부터 인턴 전후의 모습까지 모든 걸 담았습니다.",
+  "videoUrl" : "https://www.youtube.com/watch?v=PePdoGbT5gM",
+  "company" : {
+    "name" : "Ringle",
+    "description" : "영미권 명문대 튜터와 일대일 대화를 나누며 영어를 교정받을 수 있는 화상 영어 서비스",
+    "url" : "https://www.ringleplus.com"
+  },
+  "work" : {
+    "place" : "해외",
+    "startDate" : "2023-07-01",
+    "endDate" : "2023-12-31"
+  },
+  "project" : {
+    "name" : "백엔드...",
+    "description" : "온보딩, BuildKite, 3.0챌린지 백엔드 작업"
+  },
+  "jobs" : [ {
+    "id" : 4,
+    "type" : "직무",
+    "name" : "서버 개발자",
+    "neighbors" : [ ]
+  } ],
+  "techStacks" : [ {
+    "id" : 3,
+    "type" : "기술스택",
+    "name" : "Spring",
+    "neighbors" : [ ]
+  } ],
+  "viewCount" : 1024,
+  "thumbnail" : null,
+  "createdAt" : "2024-09-04T16:26:37.112639"
+}
+----

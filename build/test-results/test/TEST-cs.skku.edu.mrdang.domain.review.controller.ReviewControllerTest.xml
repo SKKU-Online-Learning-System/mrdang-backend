@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-09-04T07:26:37" hostname="YoonSeocBookAir" time="0.034">
+  <properties/>
+  <testcase name="API 문서 - 강의 리뷰 작성하기." classname="cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest" time="0.008"/>
+  <testcase name="API 문서 - 로드맵 리뷰 작성하기." classname="cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest" time="0.006"/>
+  <testcase name="API 문서 - 강의 리뷰 조회하기." classname="cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest" time="0.008"/>
+  <testcase name="API 문서 - 로드맵 리뷰 조회하기." classname="cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest" time="0.011"/>
+  <system-out><![CDATA[2024-09-04T16:26:37.493+09:00  INFO 73922 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest]: ReviewControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-09-04T16:26:37.502+09:00  INFO 73922 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration cs.skku.edu.mrdang.MrdangApplication for test class cs.skku.edu.mrdang.domain.review.controller.ReviewControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.1.5)
+
+2024-09-04T16:26:37.511+09:00  INFO 73922 --- [    Test worker] c.s.e.m.d.r.c.ReviewControllerTest       : Starting ReviewControllerTest using Java 17.0.10 with PID 73922 (started by yoonseonglee in /Users/yoonseonglee/dev/mvp-backend-spring)
+2024-09-04T16:26:37.511+09:00  INFO 73922 --- [    Test worker] c.s.e.m.d.r.c.ReviewControllerTest       : The following 1 profile is active: "prod"
+2024-09-04T16:26:37.511+09:00 TRACE 73922 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@58dea0a7, started on Wed Sep 04 16:26:37 KST 2024
+2024-09-04T16:26:37.585+09:00 TRACE 73922 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : No 'messageSource' bean, using [Empty MessageSource]
+2024-09-04T16:26:37.585+09:00 TRACE 73922 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : No 'applicationEventMulticaster' bean, using [SimpleApplicationEventMulticaster]
+2024-09-04T16:26:37.608+09:00 DEBUG 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-09-04T16:26:37.612+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	c.s.e.m.d.r.c.ReviewController:
+	{GET [/roadmaps/{roadmapId}/reviews]}: getRoadmapReviews(User,Long)
+	{POST [/lectures/{lectureId}/reviews]}: createLectureReview(CreateRequest,User,Long)
+	{GET [/lectures/{lectureId}/reviews]}: getLectureReviews(User,Long)
+	{POST [/roadmaps/{roadmapId}/reviews]}: createRoadmapReview(CreateRequest,User,Long)
+2024-09-04T16:26:37.613+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 
+	o.s.b.a.w.s.e.BasicErrorController:
+	{ [/error]}: error(HttpServletRequest)
+	{ [/error], produces [text/html]}: errorHtml(HttpServletRequest,HttpServletResponse)
+2024-09-04T16:26:37.613+09:00 DEBUG 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-09-04T16:26:37.614+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.h.BeanNameUrlHandlerMapping      : Detected 0 mappings in 'beanNameHandlerMapping'
+2024-09-04T16:26:37.614+09:00 TRACE 73922 --- [    Test worker] o.s.w.s.f.support.RouterFunctionMapping  : 0 RouterFunction(s) in 'routerFunctionMapping'
+2024-09-04T16:26:37.616+09:00 TRACE 73922 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/webjars/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-09-04T16:26:37.616+09:00 TRACE 73922 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/**] onto ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-09-04T16:26:37.616+09:00 TRACE 73922 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped [/attach/**] onto ResourceHttpRequestHandler [URL [file:/attach/]]
+2024-09-04T16:26:37.616+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /attach/**] in 'resourceHandlerMapping'
+2024-09-04T16:26:37.617+09:00 DEBUG 73922 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-09-04T16:26:37.620+09:00  INFO 73922 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-09-04T16:26:37.620+09:00  INFO 73922 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-09-04T16:26:37.620+09:00  INFO 73922 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-09-04T16:26:37.623+09:00 TRACE 73922 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : No 'lifecycleProcessor' bean, using [DefaultLifecycleProcessor]
+2024-09-04T16:26:37.623+09:00  INFO 73922 --- [    Test worker] c.s.e.m.d.r.c.ReviewControllerTest       : Started ReviewControllerTest in 0.12 seconds (process running for 2.767)
+2024-09-04T16:26:37.627+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to cs.skku.edu.mrdang.domain.review.controller.ReviewController#createLectureReview(CreateRequest, User, Long)
+2024-09-04T16:26:37.628+09:00 TRACE 73922 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [cs.skku.edu.mrdang.domain.review.dto.ReviewDTO$CreateRequest@1e3c4c12]
+2024-09-04T16:26:37.628+09:00 TRACE 73922 --- [    Test worker] o.s.web.method.HandlerMethod             : Arguments: [cs.skku.edu.mrdang.domain.review.dto.ReviewDTO$CreateRequest@1e3c4c12, cs.skku.edu.mrdang.domain.user.entity.User@92fd091, 1]
+2024-09-04T16:26:37.628+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-04T16:26:37.628+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2024-09-04T16:26:37.628+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Applying default cacheSeconds=-1
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /lectures/1/reviews
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"47", Cookie:"access-token=access; refresh-token=refresh"]
+             Body = {"review":"강의가 너무 유익했어요!!"}
+    Session Attrs = {}
+
+Handler:
+             Type = cs.skku.edu.mrdang.domain.review.controller.ReviewController
+           Method = cs.skku.edu.mrdang.domain.review.controller.ReviewController#createLectureReview(CreateRequest, User, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2024-09-04T16:26:37.634+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to cs.skku.edu.mrdang.domain.review.controller.ReviewController#createRoadmapReview(CreateRequest, User, Long)
+2024-09-04T16:26:37.635+09:00 TRACE 73922 --- [    Test worker] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [cs.skku.edu.mrdang.domain.review.dto.ReviewDTO$CreateRequest@74214ac3]
+2024-09-04T16:26:37.635+09:00 TRACE 73922 --- [    Test worker] o.s.web.method.HandlerMethod             : Arguments: [cs.skku.edu.mrdang.domain.review.dto.ReviewDTO$CreateRequest@74214ac3, cs.skku.edu.mrdang.domain.user.entity.User@92fd091, 1]
+2024-09-04T16:26:37.635+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-04T16:26:37.635+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Nothing to write: null body
+2024-09-04T16:26:37.635+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Applying default cacheSeconds=-1
+
+MockHttpServletRequest:
+      HTTP Method = POST
+      Request URI = /roadmaps/1/reviews
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Content-Length:"50", Cookie:"access-token=access; refresh-token=refresh"]
+             Body = {"review":"로드맵이 너무 유익했어요!!"}
+    Session Attrs = {}
+
+Handler:
+             Type = cs.skku.edu.mrdang.domain.review.controller.ReviewController
+           Method = cs.skku.edu.mrdang.domain.review.controller.ReviewController#createRoadmapReview(CreateRequest, User, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 201
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers"]
+     Content type = null
+             Body = 
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2024-09-04T16:26:37.641+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to cs.skku.edu.mrdang.domain.review.controller.ReviewController#getLectureReviews(User, Long)
+2024-09-04T16:26:37.641+09:00 TRACE 73922 --- [    Test worker] o.s.web.method.HandlerMethod             : Arguments: [cs.skku.edu.mrdang.domain.user.entity.User@92fd091, 1]
+2024-09-04T16:26:37.641+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-04T16:26:37.642+09:00 TRACE 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[cs.skku.edu.mrdang.domain.review.dto.ReviewDTO$LectureReviewResponse@1545ef47]]
+2024-09-04T16:26:37.643+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Applying default cacheSeconds=-1
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /lectures/1/reviews
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Cookie:"access-token=access; refresh-token=refresh"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = cs.skku.edu.mrdang.domain.review.controller.ReviewController
+           Method = cs.skku.edu.mrdang.domain.review.controller.ReviewController#getLectureReviews(User, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":1,"review":"강의가 너무 유익했어요!!","createdAt":"2024-09-04T16:26:37.640848","lecture":{"id":1,"title":"명반론","likeCount":2427},"author":{"id":1,"name":"이윤성","glsId":"tjd1024","role":"STUDENT"}}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+2024-09-04T16:26:37.651+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to cs.skku.edu.mrdang.domain.review.controller.ReviewController#getRoadmapReviews(User, Long)
+2024-09-04T16:26:37.651+09:00 TRACE 73922 --- [    Test worker] o.s.web.method.HandlerMethod             : Arguments: [cs.skku.edu.mrdang.domain.user.entity.User@92fd091, 1]
+2024-09-04T16:26:37.651+09:00 DEBUG 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-09-04T16:26:37.651+09:00 TRACE 73922 --- [    Test worker] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[cs.skku.edu.mrdang.domain.review.dto.ReviewDTO$RoadmapReviewResponse@10b36d8a]]
+2024-09-04T16:26:37.652+09:00 TRACE 73922 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Applying default cacheSeconds=-1
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /roadmaps/1/reviews
+       Parameters = {}
+          Headers = [Content-Type:"application/json;charset=UTF-8", Cookie:"access-token=access; refresh-token=refresh"]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = cs.skku.edu.mrdang.domain.review.controller.ReviewController
+           Method = cs.skku.edu.mrdang.domain.review.controller.ReviewController#getRoadmapReviews(User, Long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:"Origin", "Access-Control-Request-Method", "Access-Control-Request-Headers", Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"id":2,"review":"로드맵이 너무 유익했어요!!","createdAt":"2024-09-04T16:26:37.640864","roadmap":{"id":1,"title":"평론가의 길","likeCount":100},"author":{"id":1,"name":"이윤성","glsId":"tjd1024","role":"STUDENT"}}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

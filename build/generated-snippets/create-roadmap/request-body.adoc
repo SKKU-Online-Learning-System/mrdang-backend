@@ -1,0 +1,9 @@
+[source,json,options="nowrap"]
+----
+{
+  "trackId" : 1,
+  "description" : "-평론가의 길-",
+  "content" : "평론가가 되는 과정을 배웁니다.",
+  "thumbnailId" : 1
+}
+----

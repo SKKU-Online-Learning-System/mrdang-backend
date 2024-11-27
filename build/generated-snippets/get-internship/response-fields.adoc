@@ -1,0 +1,60 @@
+|===
+|Path|Type|Description
+
+|`+id+`
+|`+Number+`
+|인턴십의 DB 고유번호(ID)
+
+|`+author+`
+|`+Object+`
+|인턴십 후기 작성자
+
+|`+title+`
+|`+String+`
+|인턴십 제목
+
+|`+description+`
+|`+String+`
+|인턴십 후기 소개글
+
+|`+content+`
+|`+String+`
+|인턴십 후기 자세한 내용
+
+|`+videoUrl+`
+|`+String+`
+|인턴십 후기 영상링크
+
+|`+company+`
+|`+Object+`
+|인턴십 후기 회사 정보
+
+|`+work+`
+|`+Object+`
+|인턴십 후기 근무 정보
+
+|`+project+`
+|`+Object+`
+|인턴십 후기 수행한 프로젝트 정보
+
+|`+jobs+`
+|`+Array+`
+|인턴십 직무 카테고리
+
+|`+techStacks+`
+|`+Array+`
+|인턴십 기술스택 카테고리
+
+|`+viewCount+`
+|`+Number+`
+|인턴십 후기 조회수
+
+|`+thumbnail+`
+|`+Object+`
+|인턴십 후기 썸네일
+
+|`+createdAt+`
+|`+String+`
+|인턴십 후기 작성일
+
+|===

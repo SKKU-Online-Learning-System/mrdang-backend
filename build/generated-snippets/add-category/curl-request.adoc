@@ -1,0 +1,9 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/lectures/1/categories' -i -X PATCH \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    --cookie 'access-token=access;refresh-token=refresh' \
+    -d '{
+  "categoryId" : 1
+}'
+----

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="cs.skku.edu.mrdang.domain.lecture.service.LectureServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-09-04T07:26:37" hostname="YoonSeocBookAir" time="0.107">
+  <properties/>
+  <testcase name="영상을 추가할 때, 강의의 총 시간에 영상의 길이가 반영돼야 한다." classname="cs.skku.edu.mrdang.domain.lecture.service.LectureServiceTest" time="0.102"/>
+  <testcase name="영상을 추가할 때, 인덱스가 중복되면 안된다." classname="cs.skku.edu.mrdang.domain.lecture.service.LectureServiceTest" time="0.003"/>
+  <testcase name="영상을 추가할 때, 이미 추가된 영상이면 안된다." classname="cs.skku.edu.mrdang.domain.lecture.service.LectureServiceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

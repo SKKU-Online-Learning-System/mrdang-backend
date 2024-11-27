@@ -1,0 +1,8 @@
+.+/lectures/{lectureId}/videos+
+|===
+|Parameter|Description
+
+|`+lectureId+`
+|찾으려는 강의의 ID
+
+|===

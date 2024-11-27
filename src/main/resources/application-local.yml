@@ -1,0 +1,21 @@
+spring:
+  #  DB 세팅 local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 5
+
+file:
+  root-location: "/attach"
+
+# Logging 세팅
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+        security: TRACE

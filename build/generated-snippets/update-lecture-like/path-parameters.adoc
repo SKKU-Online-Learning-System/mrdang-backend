@@ -1,0 +1,8 @@
+.+/lectures/{lectureId}/like+
+|===
+|Parameter|Description
+
+|`+lectureId+`
+|수강신청한 강의의 ID
+
+|===

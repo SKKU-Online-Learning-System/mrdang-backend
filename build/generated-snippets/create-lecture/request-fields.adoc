@@ -1,0 +1,24 @@
+|===
+|Path|Type|Description
+
+|`+title+`
+|`+String+`
+|강의의 제목
+
+|`+tutor+`
+|`+String+`
+|강연자 이름
+
+|`+description+`
+|`+String+`
+|강의 소개글
+
+|`+content+`
+|`+String+`
+|강의 내용
+
+|`+thumbnailId+`
+|`+Number+`
+|강의에 사용될 썸네일의 ID
+
+|===

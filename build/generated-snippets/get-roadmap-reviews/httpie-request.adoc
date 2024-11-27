@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ http GET 'http://localhost:8080/roadmaps/1/reviews' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Cookie:access-token=access' \
+    'Cookie:refresh-token=refresh'
+----

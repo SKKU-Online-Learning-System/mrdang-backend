@@ -1,0 +1,12 @@
+[source,bash]
+----
+$ curl 'http://localhost:8080/roadmaps' -i -X POST \
+    -H 'Content-Type: application/json;charset=UTF-8' \
+    --cookie 'access-token=access;refresh-token=refresh' \
+    -d '{
+  "trackId" : 1,
+  "description" : "-평론가의 길-",
+  "content" : "평론가가 되는 과정을 배웁니다.",
+  "thumbnailId" : 1
+}'
+----

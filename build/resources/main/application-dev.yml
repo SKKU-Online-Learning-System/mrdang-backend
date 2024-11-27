@@ -1,0 +1,31 @@
+spring:
+#  DB 세팅 dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      connection-timeout: 10000
+      maximum-pool-size: 5
+  jwt:
+    secret: ${JWT_SECRET}
+
+file:
+  root-location: "/attach"
+
+sso:
+  host: ${SSO_HOST}
+  port: ${SSO_PORT}
+  api:
+    key: ${SSO_API_KEY}
+  retUrl: ${SSO_RETURL_DEV}
+
+# Logging 세팅
+# TODO: 제거
+logging:
+  level:
+    org:
+      springframework:
+        web: TRACE
+        security: TRACE

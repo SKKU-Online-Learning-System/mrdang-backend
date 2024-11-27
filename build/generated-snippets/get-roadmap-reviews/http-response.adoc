@@ -1,0 +1,26 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 317
+
+[ {
+  "id" : 2,
+  "review" : "로드맵이 너무 유익했어요!!",
+  "createdAt" : "2024-09-04T16:26:37.640864",
+  "roadmap" : {
+    "id" : 1,
+    "title" : "평론가의 길",
+    "likeCount" : 100
+  },
+  "author" : {
+    "id" : 1,
+    "name" : "이윤성",
+    "glsId" : "tjd1024",
+    "role" : "STUDENT"
+  }
+} ]
+----

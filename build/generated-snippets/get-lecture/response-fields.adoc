@@ -1,0 +1,68 @@
+|===
+|Path|Type|Description
+
+|`+id+`
+|`+Number+`
+|강의의 DB 고유번호(ID)
+
+|`+title+`
+|`+String+`
+|강의의 제목
+
+|`+tutor+`
+|`+String+`
+|강연자 이름
+
+|`+description+`
+|`+String+`
+|강의 소개글
+
+|`+content+`
+|`+String+`
+|강의 내용
+
+|`+videoCount+`
+|`+Number+`
+|강의에 포함된 영상 개수
+
+|`+totalDuration+`
+|`+String+`
+|강의에 포함된 영상의 총 길이
+
+|`+likeCount+`
+|`+Number+`
+|강의 좋아요 개수
+
+|`+studentCount+`
+|`+Number+`
+|강의 수강생 수
+
+|`+thumbnail+`
+|`+Object+`
+|강의 썸네일
+
+|`+categories+`
+|`+Array+`
+|강의의 카테고리들
+
+|`+videos+`
+|`+Array+`
+|강의에 포함된 영상
+
+|`+isRegistered+`
+|`+Boolean+`
+|강의를 수강하였는가?
+
+|`+progress+`
+|`+Number+`
+|강의 수강률(퍼센트)
+
+|`+isCompleted+`
+|`+Boolean+`
+|강의를 수료하였는가?
+
+|`+createdAt+`
+|`+String+`
+|강의 생성 날짜
+
+|===

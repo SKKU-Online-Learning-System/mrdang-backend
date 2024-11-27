@@ -1,0 +1,8 @@
+.+/internships/{internshipId}+
+|===
+|Parameter|Description
+
+|`+internshipId+`
+|찾으려는 인턴십의 ID
+
+|===

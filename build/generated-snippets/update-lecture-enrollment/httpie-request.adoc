@@ -1,0 +1,7 @@
+[source,bash]
+----
+$ http PATCH 'http://localhost:8080/lectures/1/videos/1/enrollment' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Cookie:access-token=access' \
+    'Cookie:refresh-token=refresh'
+----

@@ -1,0 +1,9 @@
+[source,bash]
+----
+$ echo '{
+  "review" : "강의가 너무 유익했어요!!"
+}' | http POST 'http://localhost:8080/lectures/1/reviews' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Cookie:access-token=access' \
+    'Cookie:refresh-token=refresh'
+----

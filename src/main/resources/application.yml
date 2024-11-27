@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: "mrdang"
+  profiles:
+    active: prod
+
+# JPA 세팅
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: create # 맨 처음에는 create, 개발에는 update, 운영에는 **무조건** none
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  auth:
+    jwt:
+      secretKey: anzandaanzandaanzandaanzandaanzandaanzandaanzandaanzandaanzandaanzandaanzanda
+      refreshTokenExpiry: 36000000 # 10시간
+      accessTokenExpiry: 1800000 # 30분
+
+# Servlet 세팅
+server:
+  servlet:
+    context-path: /api
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
+  port: 8080

@@ -1,0 +1,13 @@
+[source,bash]
+----
+$ echo '{
+  "title" : "명반론",
+  "tutor" : "anzanda",
+  "description" : "명반이란 무엇이고, 왜 명반이라고 하는 걸까?",
+  "content" : "평론가 anzanda님의 명반론을 다룹니다.",
+  "thumbnailId" : 1
+}' | http POST 'http://localhost:8080/lectures' \
+    'Content-Type:application/json;charset=UTF-8' \
+    'Cookie:access-token=access' \
+    'Cookie:refresh-token=refresh'
+----

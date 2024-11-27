@@ -1,0 +1,16 @@
+[source,http,options="nowrap"]
+----
+POST /roadmaps HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 141
+Host: localhost:8080
+Cookie: access-token=access
+Cookie: refresh-token=refresh
+
+{
+  "trackId" : 1,
+  "description" : "-평론가의 길-",
+  "content" : "평론가가 되는 과정을 배웁니다.",
+  "thumbnailId" : 1
+}
+----

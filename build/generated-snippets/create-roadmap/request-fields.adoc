@@ -1,0 +1,20 @@
+|===
+|Path|Type|Description
+
+|`+trackId+`
+|`+Number+`
+|로드맵의 카테고리
+
+|`+description+`
+|`+String+`
+|로드맵 소개글
+
+|`+content+`
+|`+String+`
+|로드맵 내용
+
+|`+thumbnailId+`
+|`+Number+`
+|로드맵 썸네일
+
+|===

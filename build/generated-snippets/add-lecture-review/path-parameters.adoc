@@ -1,0 +1,8 @@
+.+/lectures/{lectureId}/reviews+
+|===
+|Parameter|Description
+
+|`+lectureId+`
+|강의의 ID
+
+|===

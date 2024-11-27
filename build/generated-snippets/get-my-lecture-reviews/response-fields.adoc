@@ -1,0 +1,24 @@
+|===
+|Path|Type|Description
+
+|`+[].id+`
+|`+Number+`
+|리뷰의 DB 고유번호(ID)
+
+|`+[].review+`
+|`+String+`
+|리뷰의 내용
+
+|`+[].createdAt+`
+|`+String+`
+|리뷰 생성 일자
+
+|`+[].lecture+`
+|`+Object+`
+|리뷰가 달린 강의의 간략한 정보
+
+|`+[].author+`
+|`+Object+`
+|리뷰가 작성자 정보
+
+|===

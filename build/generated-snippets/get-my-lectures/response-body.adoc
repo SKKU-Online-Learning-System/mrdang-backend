@@ -1,0 +1,22 @@
+[source,json,options="nowrap"]
+----
+[ {
+  "id" : 1,
+  "title" : "명반론",
+  "description" : "명반이란 무엇이고, 왜 명반이라고 하는 걸까?",
+  "tutor" : "anzanda",
+  "likeCount" : 2427,
+  "studentCount" : 100,
+  "categories" : [ {
+    "id" : 1,
+    "type" : "직무",
+    "name" : "평론가",
+    "neighbors" : [ ]
+  } ],
+  "thumbnail" : {
+    "id" : 1,
+    "filename" : "보편적인 노래 앨범커버",
+    "path" : "/attach/보편적인_노래_앨범커버.jpg"
+  }
+} ]
+----

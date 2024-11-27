@@ -1,0 +1,17 @@
+[source,http,options="nowrap"]
+----
+POST /lectures HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Content-Length: 222
+Host: localhost:8080
+Cookie: access-token=access
+Cookie: refresh-token=refresh
+
+{
+  "title" : "명반론",
+  "tutor" : "anzanda",
+  "description" : "명반이란 무엇이고, 왜 명반이라고 하는 걸까?",
+  "content" : "평론가 anzanda님의 명반론을 다룹니다.",
+  "thumbnailId" : 1
+}
+----

@@ -1,0 +1,8 @@
+|===
+|Path|Type|Description
+
+|`+categoryId+`
+|`+Number+`
+|강의에 추가할 카테고리의 ID
+
+|===

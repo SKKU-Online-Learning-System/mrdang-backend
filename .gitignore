@@ -2,6 +2,7 @@ application-dev.**
 **.html
 .env.**
 docker-compose-**
+.env
 
 HELP.md
 .gradle

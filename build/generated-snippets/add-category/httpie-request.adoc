@@ -1,9 +1,0 @@
-[source,bash]
-----
-$ echo '{
-  "categoryId" : 1
-}' | http PATCH 'http://localhost:8080/lectures/1/categories' \
-    'Content-Type:application/json;charset=UTF-8' \
-    'Cookie:access-token=access' \
-    'Cookie:refresh-token=refresh'
-----

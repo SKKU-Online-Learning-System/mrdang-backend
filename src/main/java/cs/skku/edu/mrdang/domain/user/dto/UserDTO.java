@@ -31,6 +31,7 @@ public class UserDTO {
         private Long id;
         private String name;
         private String glsId;
+        private String studentId;
 
         private UserRole role;
 
@@ -39,6 +40,7 @@ public class UserDTO {
                     .id(user.getId())
                     .name(user.getName())
                     .glsId(user.getGlsId())
+                    .studentId(user.getStudentId())
                     .role(user.getRole())
                     .build();
         }

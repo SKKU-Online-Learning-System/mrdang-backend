@@ -1,8 +1,0 @@
-.+/roadmaps/{roadmapId}+
-|===
-|Parameter|Description
-
-|`+roadmapId+`
-|찾으려는 로드맵의 ID
-
-|===

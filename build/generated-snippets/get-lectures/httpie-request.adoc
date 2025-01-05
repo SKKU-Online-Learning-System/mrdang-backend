@@ -1,5 +1,0 @@
-[source,bash]
-----
-$ http GET 'http://localhost:8080/lectures?query=&scope=all&sort=recent&pageNumber=0&pageSize=10' \
-    'Content-Type:application/json;charset=UTF-8'
-----

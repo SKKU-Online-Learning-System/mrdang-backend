@@ -1,7 +1,0 @@
-[source,json,options="nowrap"]
-----
-[ {
-  "index" : 1,
-  "videoId" : 1
-} ]
-----

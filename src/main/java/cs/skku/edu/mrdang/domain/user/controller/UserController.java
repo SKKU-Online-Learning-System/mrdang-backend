@@ -19,6 +19,7 @@ public class UserController {
 
     private final UserService userService;
 
+    @MasterOnly
     @GetMapping()
     public ResponseEntity<List<UserDTO.Response>> getUsers() {
         List<UserDTO.Response> response = userService.getUsers();

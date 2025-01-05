@@ -1,7 +1,0 @@
-[source,bash]
-----
-$ http GET 'http://localhost:8080/me/roadmaps/like' \
-    'Content-Type:application/json;charset=UTF-8' \
-    'Cookie:access-token=access' \
-    'Cookie:refresh-token=refresh'
-----

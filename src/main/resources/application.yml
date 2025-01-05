@@ -2,7 +2,7 @@ spring:
   application:
     name: "mrdang"
   profiles:
-    active: prod
+    active: local
 
 # JPA 세팅
   jpa:

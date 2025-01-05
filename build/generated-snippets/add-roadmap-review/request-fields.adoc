@@ -1,8 +1,0 @@
-|===
-|Path|Type|Description
-
-|`+review+`
-|`+String+`
-|작성한 리뷰 내용
-
-|===

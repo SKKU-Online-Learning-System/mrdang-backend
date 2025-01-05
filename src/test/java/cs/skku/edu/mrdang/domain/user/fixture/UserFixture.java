@@ -8,7 +8,7 @@ public class UserFixture {
             .id(1L)
             .name("이윤성")
             .glsId("tjd1024")
-            .role(UserRole.STUDENT)
+            .role(UserRole.MASTER)
             .studentId("2020313052")
             .academicDepartment("소프트웨어학과")
             .academicDegree("학사")

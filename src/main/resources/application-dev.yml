@@ -1,5 +1,15 @@
 spring:
-#  DB 세팅 dev
+  # JPA 세팅
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  #  DB 세팅 dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: ${DATABASE_URL}
@@ -8,8 +18,13 @@ spring:
     hikari:
       connection-timeout: 10000
       maximum-pool-size: 5
-  jwt:
-    secret: ${JWT_SECRET}
+
+  auth:
+    jwt:
+      secretKey: ${JWT_SECRET_KEY}
+      refreshTokenExpiry: 36000000 # 10시간
+      accessTokenExpiry: 1800000 # 30분
+
 
 file:
   root-location: "/attach"

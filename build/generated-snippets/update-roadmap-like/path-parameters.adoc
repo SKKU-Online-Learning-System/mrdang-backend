@@ -1,8 +1,0 @@
-.+/roadmaps/{roadmapId}/like+
-|===
-|Parameter|Description
-
-|`+roadmapId+`
-|대상 로드맵의 ID
-
-|===

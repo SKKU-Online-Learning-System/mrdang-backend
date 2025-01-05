@@ -1,8 +1,0 @@
-.+/roadmaps/{roadmapId}/reviews+
-|===
-|Parameter|Description
-
-|`+roadmapId+`
-|로드맵의 ID
-
-|===

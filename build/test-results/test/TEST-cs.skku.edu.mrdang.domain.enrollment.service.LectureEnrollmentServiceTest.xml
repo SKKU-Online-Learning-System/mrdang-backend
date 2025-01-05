@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="cs.skku.edu.mrdang.domain.enrollment.service.LectureEnrollmentServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-09-04T07:26:36" hostname="YoonSeocBookAir" time="0.064">
-  <properties/>
-  <testcase name="좋아요를 누르면 Lecture 엔티티에도 반영돼야한다." classname="cs.skku.edu.mrdang.domain.enrollment.service.LectureEnrollmentServiceTest" time="0.064"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

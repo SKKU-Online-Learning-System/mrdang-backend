@@ -1,6 +1,0 @@
-[source,json,options="nowrap"]
-----
-{
-  "review" : "강의가 너무 유익했어요!!"
-}
-----

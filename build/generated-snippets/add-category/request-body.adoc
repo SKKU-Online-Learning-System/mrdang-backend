@@ -1,6 +1,0 @@
-[source,json,options="nowrap"]
-----
-{
-  "categoryId" : 1
-}
-----

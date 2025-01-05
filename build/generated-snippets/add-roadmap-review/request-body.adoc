@@ -1,6 +1,0 @@
-[source,json,options="nowrap"]
-----
-{
-  "review" : "로드맵이 너무 유익했어요!!"
-}
-----

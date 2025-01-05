@@ -1,9 +1,0 @@
-[source,bash]
-----
-$ echo '{
-  "review" : "로드맵이 너무 유익했어요!!"
-}' | http POST 'http://localhost:8080/roadmaps/1/reviews' \
-    'Content-Type:application/json;charset=UTF-8' \
-    'Cookie:access-token=access' \
-    'Cookie:refresh-token=refresh'
-----

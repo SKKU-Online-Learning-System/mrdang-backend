@@ -2,7 +2,7 @@ spring:
   application:
     name: "mrdang"
   profiles:
-    active: prod
+    active: local
 
 # JPA 세팅
   jpa:
@@ -28,7 +28,3 @@ server:
       max-file-size: 5MB
       max-request-size: 5MB
   port: 8080
-
-# 이거 path설정 때문이라도 container를 도입해야돼용
-file:
-  root-location: "C:\\Users\\user\\Desktop\\attach"

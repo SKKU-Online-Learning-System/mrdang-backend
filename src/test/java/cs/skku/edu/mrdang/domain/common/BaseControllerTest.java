@@ -7,7 +7,6 @@ import cs.skku.edu.mrdang.security.jwt.JWTUtil;
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs;
-import org.springframework.boot.test.autoconfigure.restdocs.RestDocsAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.doNothing;
 @WebMvcTest
 @AutoConfigureRestDocs
 @AutoConfigureMockMvc
-@Import(RestDocsAutoConfiguration.class)
+@Import(RestDocsConfiguration.class)
 public class BaseControllerTest {
     @Autowired
     protected MockMvc mockMvc;

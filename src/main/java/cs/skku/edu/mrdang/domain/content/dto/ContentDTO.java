@@ -11,6 +11,42 @@ public class ContentDTO {
     @Getter
     @Builder
     @AllArgsConstructor
+    public static class CreateRequest{
+        private ContentType type;
+
+        private String title;
+        private String description;
+        private String author;
+
+        private String link;
+        private String thumbnail_url;
+
+        public static Response from(Content content) {
+            return Response.builder()
+                    .type(content.getType())
+                    .title(content.getTitle())
+                    .description(content.getDescription())
+                    .author(content.getAuthor())
+                    .link(content.getLink())
+                    .thumbnail_url(content.getThumbnail_url())
+                    .build();
+        }
+
+        public Content toEntity() {
+            return Content.builder()
+                    .type(type)
+                    .title(title)
+                    .description(description)
+                    .author(author)
+                    .link(link)
+                    .thumbnail_url(thumbnail_url)
+                    .build();
+        }
+    }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
     public static class Response {
 
         private Long id;

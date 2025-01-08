@@ -1,0 +1,32 @@
+[[resource-contents]]
+== CONTENT API
+
+Content API는 온라인 명륜당+에 존재하는 컨텐츠에 대한 인터랙션을 담당한다.
+
+[[resource-contents-create]]
+=== `POST /contents` 컨텐츠 생성
+
+`POST /contents` 요청을 사용해서 새로운 컨텐츠를 생성할 수 있다.
+
+operation::create-content[snippets='http-request,request-body,request-cookies,http-response']
+
+[[resource-contents-get]]
+=== `GET /contents` 모든 컨텐츠 가져오기
+
+`GET /contents` 요청을 사용해서 모든 컨텐츠를 조회할 수 있다.
+
+operation::get-contents[snippets='http-request,response-fields,response-body','http-response']
+
+[[resource-contents-get-content]]
+=== `GET /contents/{contentId}` 컨텐츠 가져오기
+
+`GET /contents/{contentId}` 요청을 사용해서 특정 컨텐츠를 조회할 수 있다.
+
+operation::get-content[snippets='http-request,path-parameters,response-fields,http-response']
+
+[[resource-contents-delete]]
+=== `DELETE /contents/{contentId}` 컨텐츠 삭제
+
+`DELETE /contents/{contentId}` 요청을 사용해서 특정 컨텐츠를 삭제할 수 있다.
+
+operation::delete-content[snippets='http-request,request-cookies,path-parameters,http-response']

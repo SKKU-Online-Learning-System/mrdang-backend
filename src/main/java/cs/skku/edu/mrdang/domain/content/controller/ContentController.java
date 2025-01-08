@@ -4,10 +4,7 @@ import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.service.ContentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 import java.util.List;
@@ -19,12 +16,13 @@ public class ContentController {
 
     private final ContentService contentService;
 
+    // auth 추가
     @PostMapping
-    public ResponseEntity<Void> createContent() {
-        Long id = 1L;
+    public ResponseEntity<Long> createContent(@RequestBody ContentDTO.CreateRequest request) {
+        Long id = contentService.createContent(request);
         return ResponseEntity
                 .created(URI.create("/contents" + id))
-                .build();
+                .body(id);
     }
 
     @GetMapping
@@ -32,5 +30,18 @@ public class ContentController {
         List<ContentDTO.Response> response = contentService.getContents();
 
         return ResponseEntity.ok().body(response);
+    }
+
+    @GetMapping("/{contentId}")
+    public ResponseEntity<ContentDTO.Response> getContent(@PathVariable Long contentId) {
+        ContentDTO.Response response = contentService.getContent(contentId);
+
+        return ResponseEntity.ok().body(response);
+    }
+
+    @DeleteMapping("/{contentId}")
+    public ResponseEntity<Void> deleteContent(@PathVariable Long contentId) {
+        contentService.deleteContent(contentId);
+        return ResponseEntity.noContent().build();
     }
 }

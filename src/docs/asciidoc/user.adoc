@@ -1,0 +1,18 @@
+[[resource-users]]
+== USER API
+
+User API는 온라인 명륜당+에 존재하는 유저에 대한 인터랙션을 담당한다.
+
+[[resource-users-get]]
+=== `GET /users/` 존재하는 모든 유저 가져오기
+
+`GET /users` 요청을 사용해서 모든 유저를 조회할 수 있다.
+
+operation::get-users[snippets='http-request,request-cookies,response-fields,response-body']
+
+[[resource-userole-change]]
+=== `PATCH /users` 유저 권한 변경하기
+
+`PATCH /users` 요청을 사용해서 모든 유저를 조회할 수 있다.
+
+operation::change-role[snippets='http-request,request-body,request-cookies,response-fields,http-response']

@@ -10,10 +10,10 @@ Anzanda;
 :operation-http-resource-title: Example response
 
 [[overview]]
-= 개요
+== 개요
 
 [[overview-http-verbs]]
-== HTTP Verbs
+=== HTTP Verbs
 
 본 REST API에서 사용하는 HTTP 동사(verbs)는 가능한한 표준 HTTP와 REST 규약을 따릅니다.
 
@@ -37,7 +37,7 @@ Anzanda;
 |===
 
 [[overview-http-status-code]]
-== HTTP 상태 코드
+=== HTTP 상태 코드
 
 본 REST API에서 사용하는 HTTP 상태 코드는 가능한한 표준 HTTP와 REST 규약을 따릅니다.
 
@@ -61,17 +61,14 @@ Anzanda;
 |===
 
 [[overview-errors]]
-== 오류
+=== 오류
 
 에러 응답이 발생했을 때 (상태 코드 >= 400), 본문에 해당 문제를 기술한 JSON 객체가 담겨있다. 에러 객체는 다음의 구조를 따른다.
 
-// TODO: 스니펫 추가하기
-
 예를 들어, 잘못된 요청으로 이벤트를 만들려고 했을 때 다음과 같은 `400 Bad Request` 응답을 받는다.
 
-// TODO: 스니펫 추가하기
 
 [[resource]]
-= API
 
-== 추가 예정
+include::user.adoc[]
+include::content.adoc[]

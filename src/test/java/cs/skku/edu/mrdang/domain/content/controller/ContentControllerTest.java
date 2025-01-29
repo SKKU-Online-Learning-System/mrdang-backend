@@ -1,6 +1,7 @@
 package cs.skku.edu.mrdang.domain.content.controller;
 
 import cs.skku.edu.mrdang.domain.common.BaseControllerTest;
+import cs.skku.edu.mrdang.domain.content.ContentSnippet;
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.service.ContentService;
 import cs.skku.edu.mrdang.security.jwt.UserToken;
@@ -11,9 +12,6 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.jpa.mapping.JpaMetamodelMappingContext;
 import org.springframework.http.MediaType;
-import org.springframework.restdocs.payload.JsonFieldType;
-import org.springframework.restdocs.payload.RequestFieldsSnippet;
-import org.springframework.restdocs.payload.ResponseFieldsSnippet;
 
 import java.util.stream.Collectors;
 
@@ -25,7 +23,6 @@ import static cs.skku.edu.mrdang.domain.content.fixture.ContentFixture.CONTENTS;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
-import static org.springframework.restdocs.payload.PayloadDocumentation.*;
 import static org.springframework.restdocs.request.RequestDocumentation.parameterWithName;
 import static org.springframework.restdocs.request.RequestDocumentation.pathParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -37,6 +34,7 @@ class ContentControllerTest extends BaseControllerTest {
 
     @MockBean
     private ContentService contentService;
+    private ContentSnippet contentSnippet = new ContentSnippet();
 
     @DisplayName("API 문서 - 컨텐츠 생성")
     @Test
@@ -63,13 +61,13 @@ class ContentControllerTest extends BaseControllerTest {
                 .andDo(document(
                         "create-content",
                         StudentCookie(),
-                        CreateContentRequest()
+                        contentSnippet.CreateContentRequest()
                 ));
     }
 
     @DisplayName("API 문서 - 모든 컨텐츠 가져오기")
     @Test
-    void getContents()throws Exception{
+    void getContents() throws Exception {
         when(contentService.getContents()).thenReturn(
                 CONTENTS.stream().map(ContentDTO.Response::from).collect(Collectors.toList())
         );
@@ -81,7 +79,7 @@ class ContentControllerTest extends BaseControllerTest {
                 .andDo(print())
                 .andDo(document(
                         "get-contents",
-                        ContentResponses()
+                        contentSnippet.ContentResponses()
                 ));
     }
 
@@ -102,7 +100,7 @@ class ContentControllerTest extends BaseControllerTest {
                         pathParameters(
                                 parameterWithName("contentId").description("가져올 컨텐츠 ID")
                         ),
-                        ContentResponse()
+                        contentSnippet.ContentResponse()
                 ));
     }
 
@@ -127,40 +125,5 @@ class ContentControllerTest extends BaseControllerTest {
                         ),
                         AdminCookie()
                 ));
-    }
-
-    public RequestFieldsSnippet CreateContentRequest() {
-        return requestFields(
-            fieldWithPath("type").type(JsonFieldType.STRING).description("컨텐츠 타입"),
-            fieldWithPath("title").type(JsonFieldType.STRING).description("컨텐츠 제목"),
-            fieldWithPath("description").type(JsonFieldType.STRING).description("컨텐츠 설명"),
-            fieldWithPath("author").type(JsonFieldType.STRING).description("컨텐츠 작성자"),
-            fieldWithPath("link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
-            fieldWithPath("thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL")
-        );
-    }
-
-    public ResponseFieldsSnippet ContentResponse() {
-        return responseFields(
-                fieldWithPath("id").type(JsonFieldType.NUMBER).description("컨텐츠 ID"),
-                fieldWithPath("type").type(JsonFieldType.STRING).description("컨텐츠 타입"),
-                fieldWithPath("title").type(JsonFieldType.STRING).description("컨텐츠 제목"),
-                fieldWithPath("description").type(JsonFieldType.STRING).description("컨텐츠 설명"),
-                fieldWithPath("author").type(JsonFieldType.STRING).description("컨텐츠 작성자"),
-                fieldWithPath("link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
-                fieldWithPath("thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL")
-        );
-    }
-
-    public ResponseFieldsSnippet ContentResponses() {
-        return responseFields(
-                fieldWithPath("[].id").type(JsonFieldType.NUMBER).description("컨텐츠 ID"),
-                fieldWithPath("[].type").type(JsonFieldType.STRING).description("컨텐츠 타입"),
-                fieldWithPath("[].title").type(JsonFieldType.STRING).description("컨텐츠 제목"),
-                fieldWithPath("[].description").type(JsonFieldType.STRING).description("컨텐츠 설명"),
-                fieldWithPath("[].author").type(JsonFieldType.STRING).description("컨텐츠 작성자"),
-                fieldWithPath("[].link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
-                fieldWithPath("[].thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL")
-        );
     }
 }

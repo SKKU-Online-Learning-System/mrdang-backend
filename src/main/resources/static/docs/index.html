@@ -510,6 +510,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#resource-contents-delete_http_response">HTTP response</a></li>
 </ul>
 </li>
+<li><a href="#resource-contents-search"><code>GET /search?link=</code> 컨텐츠 검색</a>
+<ul class="sectlevel3">
+<li><a href="#resource-contents-search_http_request">HTTP request</a></li>
+<li><a href="#resource-contents-search_query_parameters">Query parameters</a></li>
+<li><a href="#resource-contents-search_response_body">Response body</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1221,6 +1228,59 @@ Cookie: refresh-token=refresh</code></pre>
 Vary: Origin
 Vary: Access-Control-Request-Method
 Vary: Access-Control-Request-Headers</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resource-contents-search"><a class="link" href="#resource-contents-search"><code>GET /search?link=</code> 컨텐츠 검색</a></h3>
+<div class="paragraph">
+<p><code>GET /search?link=</code> 요청을 사용해서 링크에 해당하는 데이터를 가져올 수 있다.
+Youtube link를 넣으면 해당하는 데이터를 가져올 수 있다.</p>
+</div>
+<div class="sect3">
+<h4 id="resource-contents-search_http_request"><a class="link" href="#resource-contents-search_http_request">HTTP request</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /search?link=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D1234 HTTP/1.1
+Host: localhost:8080</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resource-contents-search_query_parameters"><a class="link" href="#resource-contents-search_query_parameters">Query parameters</a></h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>link</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">검색할 컨텐츠의 링크</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="resource-contents-search_response_body"><a class="link" href="#resource-contents-search_response_body">Response body</a></h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-json hljs" data-lang="json">{
+  "id" : 1,
+  "type" : "YOUTUBE",
+  "title" : "입학과 동시에 삼성 취업보장!? 지능형소프트웨어학과 촬영스케치_2편│꽃보다교수│성균관대학교",
+  "description" : "성균관대학교 소프트웨어융합대학의 꽃,\n네 분의 교수님들의 꽃같은 케미!\n그 촬영 현장을 함께 살펴보실까요?\n\n\n–––––––––––––––––––––––––––––––––\n[Video Source Support]\nYoutube channel \"freeticon\" :   \n\n https://www.youtube.com/c/Freeticon\n–––––––––––––––––––––––––––––––––",
+  "author" : "SW중심대학사업단_소프트웨어융합대학",
+  "link" : "https://www.youtube.com/watch?v=BAHaRkTgiV0",
+  "thumbnail_url" : "https://i.ytimg.com/vi/BAHaRkTgiV0/default.jpg"
+}</code></pre>
 </div>
 </div>
 </div>

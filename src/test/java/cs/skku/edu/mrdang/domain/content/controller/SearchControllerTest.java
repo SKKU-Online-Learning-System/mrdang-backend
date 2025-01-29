@@ -18,7 +18,7 @@ import static org.springframework.restdocs.request.RequestDocumentation.paramete
 import static org.springframework.restdocs.request.RequestDocumentation.queryParameters;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(ContentController.class)
+@WebMvcTest(SearchController.class)
 @MockBean(JpaMetamodelMappingContext.class)
 class SearchControllerTest extends BaseControllerTest {
 

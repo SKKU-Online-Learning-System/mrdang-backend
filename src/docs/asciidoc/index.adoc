@@ -72,3 +72,4 @@ Anzanda;
 
 include::user.adoc[]
 include::content.adoc[]
+include::search.adoc[]

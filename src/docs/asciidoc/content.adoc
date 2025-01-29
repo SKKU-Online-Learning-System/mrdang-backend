@@ -30,11 +30,3 @@ operation::get-content[snippets='http-request,path-parameters,response-fields,ht
 `DELETE /contents/{contentId}` 요청을 사용해서 특정 컨텐츠를 삭제할 수 있다.
 
 operation::delete-content[snippets='http-request,request-cookies,path-parameters,http-response']
-
-[[resource-contents-search]]
-=== `GET /search?link=` 컨텐츠 검색
-
-`GET /search?link=` 요청을 사용해서 링크에 해당하는 데이터를 가져올 수 있다.
-Youtube link를 넣으면 해당하는 데이터를 가져올 수 있다.
-
-operation::search-content[snippets='http-request,query-parameters,response-body','http-response']

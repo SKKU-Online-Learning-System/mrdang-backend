@@ -1,0 +1,12 @@
+package cs.skku.edu.mrdang.domain.content.controller;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RequiredArgsConstructor
+@RestController
+@RequestMapping("/search")
+public class SearchController {
+
+}

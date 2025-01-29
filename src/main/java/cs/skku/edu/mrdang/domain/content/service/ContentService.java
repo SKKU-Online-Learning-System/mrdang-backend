@@ -2,11 +2,15 @@ package cs.skku.edu.mrdang.domain.content.service;
 
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.entity.Content;
+import cs.skku.edu.mrdang.domain.content.entity.Tag;
 import cs.skku.edu.mrdang.domain.content.repository.ContentRepository;
+import cs.skku.edu.mrdang.domain.content.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,12 +20,30 @@ import java.util.stream.Collectors;
 public class ContentService {
 
     private final ContentRepository contentRepository;
+    private final TagRepository tagRepository;
 
     public Long createContent(ContentDTO.CreateRequest request) {
         Content content = request.toEntity();
 
-        contentRepository.save(content);
+        Content saved = contentRepository.save(content);
+        saveTags(saved, request.getTags());
+
         return content.getId();
+    }
+
+    private void saveTags(Content content, List<String> tagNames) {
+        List<Tag> tags = new ArrayList<>();
+
+        // 중복 태그 발생 방지
+        for(String tagName : tagNames) {
+            Tag tag = tagRepository.findByName(tagName)
+                    .orElseGet(() -> tagRepository.save(Tag.builder().name(tagName).contents(new HashSet<>()).build()));
+            tags.add(tag);
+        }
+        for(Tag tag : tags) {
+            tag.addContent(content);
+            tagRepository.save(tag);
+        }
     }
 
     // TODO: 우선순위 추가
@@ -44,4 +66,5 @@ public class ContentService {
     public void deleteContent(Long contentId) {
         contentRepository.deleteById(contentId);
     }
+
 }

@@ -2,9 +2,14 @@ package cs.skku.edu.mrdang.domain.content.dto;
 
 import cs.skku.edu.mrdang.domain.content.entity.Content;
 import cs.skku.edu.mrdang.domain.content.entity.ContentType;
+import cs.skku.edu.mrdang.domain.content.entity.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ContentDTO {
 
@@ -20,6 +25,7 @@ public class ContentDTO {
 
         private String link;
         private String thumbnail_url;
+        private List<String> tags;
 
         public static Response from(Content content) {
             return Response.builder()
@@ -40,6 +46,7 @@ public class ContentDTO {
                     .author(author)
                     .link(link)
                     .thumbnail_url(thumbnail_url)
+                    .tags(new HashSet<>())
                     .build();
         }
     }
@@ -59,6 +66,7 @@ public class ContentDTO {
 
         private String link;
         private String thumbnail_url;
+        private List<String> tags;
 
         public static Response from(Content content) {
             return Response.builder()
@@ -69,6 +77,7 @@ public class ContentDTO {
                     .author(content.getAuthor())
                     .link(content.getLink())
                     .thumbnail_url(content.getThumbnail_url())
+                    .tags(content.getTags().stream().map(Tag::getName).collect(Collectors.toList()))
                     .build();
         }
     }

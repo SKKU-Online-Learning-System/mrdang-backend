@@ -1,6 +1,5 @@
 package cs.skku.edu.mrdang.domain.content.entity;
 
-
 import cs.skku.edu.mrdang.util.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,22 +12,19 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class Content extends BaseTimeEntity {
+public class Tag extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private ContentType type;
+    private String name;
 
-    private String title;
-    private String description;
-    private String author;
+    @ManyToMany
+    private Set<Content> contents = new HashSet<>();
 
-    private String link;
-    private String thumbnail_url;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Tag> tags = new HashSet<>();
+    public void addContent(Content content) {
+        contents.add(content);
+        content.getTags().add(this);
+    }
 }

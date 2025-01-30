@@ -1,0 +1,13 @@
+[[resource-search]]
+== SEARCH API
+
+SEARCH API는 외부 컨텐츠 데이터 공급을 담당한다.
+
+[[resource-contents-search]]
+=== `GET /search?link=` 컨텐츠 검색
+
+`GET /search?link=` 요청을 사용해서 링크에 해당하는 데이터를 가져올 수 있다.
+Youtube link를 넣으면 해당하는 데이터를 가져올 수 있다.
+나중에는 Youtube뿐 아니라 inflearn, velog 등 다양한 링크를 지원할 예정이다.
+
+operation::search-content[snippets='http-request,query-parameters,response-body','http-response']

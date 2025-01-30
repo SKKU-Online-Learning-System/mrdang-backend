@@ -14,7 +14,8 @@ public class ContentSnippet {
                 fieldWithPath("description").type(JsonFieldType.STRING).description("컨텐츠 설명"),
                 fieldWithPath("author").type(JsonFieldType.STRING).description("컨텐츠 작성자"),
                 fieldWithPath("link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
-                fieldWithPath("thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL")
+                fieldWithPath("thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL"),
+                fieldWithPath("tags").type(JsonFieldType.ARRAY).description("컨텐츠 태그")
         );
     }
 
@@ -26,7 +27,8 @@ public class ContentSnippet {
                 fieldWithPath("description").type(JsonFieldType.STRING).description("컨텐츠 설명"),
                 fieldWithPath("author").type(JsonFieldType.STRING).description("컨텐츠 작성자"),
                 fieldWithPath("link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
-                fieldWithPath("thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL")
+                fieldWithPath("thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL"),
+                fieldWithPath("tags").type(JsonFieldType.ARRAY).description("컨텐츠 태그")
         );
     }
 
@@ -38,7 +40,8 @@ public class ContentSnippet {
                 fieldWithPath("[].description").type(JsonFieldType.STRING).description("컨텐츠 설명"),
                 fieldWithPath("[].author").type(JsonFieldType.STRING).description("컨텐츠 작성자"),
                 fieldWithPath("[].link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
-                fieldWithPath("[].thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL")
+                fieldWithPath("[].thumbnail_url").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL"),
+                fieldWithPath("[].tags").type(JsonFieldType.ARRAY).description("컨텐츠 태그")
         );
     }
 }

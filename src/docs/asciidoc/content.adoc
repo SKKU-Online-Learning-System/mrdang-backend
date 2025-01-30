@@ -8,33 +8,25 @@ Content API는 온라인 명륜당+에 존재하는 컨텐츠에 대한 인터�
 
 `POST /contents` 요청을 사용해서 새로운 컨텐츠를 생성할 수 있다.
 
-operation::create-content[snippets='http-request,request-body,request-cookies,http-response']
+operation::create-content[snippets='request-cookies,request-body,http-response']
 
 [[resource-contents-get]]
 === `GET /contents` 모든 컨텐츠 가져오기
 
 `GET /contents` 요청을 사용해서 모든 컨텐츠를 조회할 수 있다.
 
-operation::get-contents[snippets='http-request,response-fields,response-body','http-response']
+operation::get-contents[snippets='http-request,response-body']
 
 [[resource-contents-get-content]]
 === `GET /contents/{contentId}` 컨텐츠 가져오기
 
 `GET /contents/{contentId}` 요청을 사용해서 특정 컨텐츠를 조회할 수 있다.
 
-operation::get-content[snippets='http-request,path-parameters,response-fields,http-response']
+operation::get-content[snippets='http-request,response-body']
 
 [[resource-contents-delete]]
 === `DELETE /contents/{contentId}` 컨텐츠 삭제
 
 `DELETE /contents/{contentId}` 요청을 사용해서 특정 컨텐츠를 삭제할 수 있다.
 
-operation::delete-content[snippets='http-request,request-cookies,path-parameters,http-response']
-
-[[resource-contents-search]]
-=== `GET /search?link=` 컨텐츠 검색
-
-`GET /search?link=` 요청을 사용해서 링크에 해당하는 데이터를 가져올 수 있다.
-Youtube link를 넣으면 해당하는 데이터를 가져올 수 있다.
-
-operation::search-content[snippets='http-request,query-parameters,response-body','http-response']
+operation::delete-content[snippets='request-cookies,http-request,http-response']

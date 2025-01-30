@@ -3,6 +3,7 @@ package cs.skku.edu.mrdang.domain.content.controller;
 import cs.skku.edu.mrdang.domain.common.BaseControllerTest;
 import cs.skku.edu.mrdang.domain.content.ContentSnippet;
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
+import cs.skku.edu.mrdang.domain.content.entity.Tag;
 import cs.skku.edu.mrdang.domain.content.service.ContentService;
 import cs.skku.edu.mrdang.security.jwt.UserToken;
 import jakarta.servlet.http.Cookie;
@@ -48,6 +49,7 @@ class ContentControllerTest extends BaseControllerTest {
                 .author(CONTENT.getAuthor())
                 .link(CONTENT.getLink())
                 .thumbnail_url(CONTENT.getThumbnail_url())
+                .tags(CONTENT.getTags().stream().map(Tag::getName).collect(Collectors.toList()))
                 .build();
 
         mockMvc.perform(post("/contents")

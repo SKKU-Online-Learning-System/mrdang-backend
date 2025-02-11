@@ -25,12 +25,12 @@ public class Content extends BaseTimeEntity {
     private String title;
 
     @Lob
-    @Column(columnDefinition = "TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
     private String description;
     private String author;
 
     private String link;
-    private String thumbnail_url;
+    private String thumbnailUrl;
+    private String youtubeVideoId;
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.ALL)

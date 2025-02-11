@@ -6,6 +6,7 @@ import cs.skku.edu.mrdang.domain.content.entity.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import org.springframework.lang.Nullable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -24,19 +25,11 @@ public class ContentDTO {
         private String author;
 
         private String link;
-        private String thumbnail_url;
+        private String thumbnailUrl;
         private List<String> tags;
 
-        public static Response from(Content content) {
-            return Response.builder()
-                    .type(content.getType())
-                    .title(content.getTitle())
-                    .description(content.getDescription())
-                    .author(content.getAuthor())
-                    .link(content.getLink())
-                    .thumbnail_url(content.getThumbnail_url())
-                    .build();
-        }
+        @Nullable
+        private String youtubeVideoId;
 
         public Content toEntity() {
             return Content.builder()
@@ -45,8 +38,9 @@ public class ContentDTO {
                     .description(description)
                     .author(author)
                     .link(link)
-                    .thumbnail_url(thumbnail_url)
+                    .thumbnailUrl(thumbnailUrl)
                     .tags(new HashSet<>())
+                    .youtubeVideoId(youtubeVideoId)
                     .build();
         }
     }
@@ -65,8 +59,12 @@ public class ContentDTO {
         private String author;
 
         private String link;
-        private String thumbnail_url;
+        private String thumbnailUrl;
         private List<String> tags;
+
+        /* Custom fields */
+        @Nullable
+        private String youtubeVideoId;
 
         public static Response from(Content content) {
             return Response.builder()
@@ -76,8 +74,9 @@ public class ContentDTO {
                     .description(content.getDescription())
                     .author(content.getAuthor())
                     .link(content.getLink())
-                    .thumbnail_url(content.getThumbnail_url())
+                    .thumbnailUrl(content.getThumbnailUrl())
                     .tags(content.getTags().stream().map(Tag::getName).collect(Collectors.toList()))
+                    .youtubeVideoId(content.getYoutubeVideoId())
                     .build();
         }
     }

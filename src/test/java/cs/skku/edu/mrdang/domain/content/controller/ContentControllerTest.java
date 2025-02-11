@@ -48,7 +48,7 @@ class ContentControllerTest extends BaseControllerTest {
                 .description(CONTENT.getDescription())
                 .author(CONTENT.getAuthor())
                 .link(CONTENT.getLink())
-                .thumbnail_url(CONTENT.getThumbnail_url())
+                .thumbnailUrl(CONTENT.getThumbnailUrl())
                 .tags(CONTENT.getTags().stream().map(Tag::getName).collect(Collectors.toList()))
                 .build();
 

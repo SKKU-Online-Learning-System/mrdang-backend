@@ -11,6 +11,7 @@ public class YoutubeDTO {
     @AllArgsConstructor
 
     public static class Response {
+        private String youtubeVideoId;
         private String title;
         private String author;
         private String description;

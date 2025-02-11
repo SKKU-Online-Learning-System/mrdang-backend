@@ -23,6 +23,9 @@ public class Content extends BaseTimeEntity {
     private ContentType type;
 
     private String title;
+
+    @Lob
+    @Column(columnDefinition = "TEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci")
     private String description;
     private String author;
 

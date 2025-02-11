@@ -32,6 +32,7 @@ public class Content extends BaseTimeEntity {
     private String link;
     private String thumbnail_url;
 
+    @Builder.Default
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Tag> tags = new HashSet<>();
 }

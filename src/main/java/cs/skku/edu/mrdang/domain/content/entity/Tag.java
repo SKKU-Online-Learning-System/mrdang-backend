@@ -20,6 +20,7 @@ public class Tag extends BaseTimeEntity {
 
     private String name;
 
+    @Builder.Default
     @ManyToMany
     private Set<Content> contents = new HashSet<>();
 

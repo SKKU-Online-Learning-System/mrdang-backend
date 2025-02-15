@@ -30,18 +30,6 @@ public class ContentDTO {
 
         @Nullable
         private String youtubeVideoId;
-
-        public Content toEntity() {
-            return Content.builder()
-                    .type(type)
-                    .title(title)
-                    .description(description)
-                    .author(author)
-                    .link(link)
-                    .thumbnailUrl(thumbnailUrl)
-                    .youtubeVideoId(youtubeVideoId)
-                    .build();
-        }
     }
 
     @Getter

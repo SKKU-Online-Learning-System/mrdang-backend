@@ -25,7 +25,7 @@ public class ContentService {
     private final ContentTagRepository contentTagRepository;
 
     public Long createContent(ContentDTO.CreateRequest request) {
-        Content content = request.toEntity();
+        Content content = Content.from(request);
 
         Content saved = contentRepository.save(content);
         saveTags(saved, request.getTags());

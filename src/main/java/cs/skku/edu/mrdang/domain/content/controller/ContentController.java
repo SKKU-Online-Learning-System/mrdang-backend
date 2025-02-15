@@ -4,6 +4,8 @@ import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.service.ContentService;
 import cs.skku.edu.mrdang.domain.user.entity.User;
 import cs.skku.edu.mrdang.security.annotation.Auth;
+import cs.skku.edu.mrdang.security.annotation.AuthenticationPrincipal;
+import cs.skku.edu.mrdang.security.annotation.MasterOnly;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +20,9 @@ public class ContentController {
 
     private final ContentService contentService;
 
-    // auth 추가
+    @Auth
     @PostMapping
-    public ResponseEntity<Long> createContent(@RequestBody ContentDTO.CreateRequest request) {
+    public ResponseEntity<Long> createContent(@AuthenticationPrincipal User user, @RequestBody ContentDTO.CreateRequest request) {
         Long id = contentService.createContent(request);
         return ResponseEntity
                 .created(URI.create("/contents" + id))
@@ -28,28 +30,33 @@ public class ContentController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ContentDTO.Response>> getContents() {
-        List<ContentDTO.Response> response = contentService.getContents();
+    public ResponseEntity<List<ContentDTO.Response>> getContents(@AuthenticationPrincipal User user) {
+        List<ContentDTO.Response> response = contentService.getContents(user);
 
         return ResponseEntity.ok().body(response);
     }
 
     @GetMapping("/{contentId}")
-    public ResponseEntity<ContentDTO.Response> getContent(@PathVariable Long contentId) {
-        ContentDTO.Response response = contentService.getContent(contentId);
+    public ResponseEntity<ContentDTO.Response> getContent(
+            @AuthenticationPrincipal User user,
+            @PathVariable Long contentId
+    ) {
+        ContentDTO.Response response = contentService.getContent(user, contentId);
 
         return ResponseEntity.ok().body(response);
     }
 
-    @PutMapping("/{contentId}")
-    public ResponseEntity<Void> updateContent(@Auth User user, @PathVariable Long contentId) {
+    @Auth
+    @PatchMapping("/{contentId}/likes")
+    public ResponseEntity<Void> updateContentLike(@AuthenticationPrincipal User user, @PathVariable Long contentId) {
         contentService.updateLike(user, contentId);
 
         return ResponseEntity.noContent().build();
     }
 
+    @MasterOnly
     @DeleteMapping("/{contentId}")
-    public ResponseEntity<Void> deleteContent(@PathVariable Long contentId) {
+    public ResponseEntity<Void> deleteContent(@AuthenticationPrincipal User user, @PathVariable Long contentId) {
         contentService.deleteContent(contentId);
         return ResponseEntity.noContent().build();
     }

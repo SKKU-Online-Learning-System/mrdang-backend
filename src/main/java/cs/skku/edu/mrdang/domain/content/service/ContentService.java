@@ -57,14 +57,22 @@ public class ContentService {
 
     // TODO: 우선순위 추가
     public List<ContentDTO.Response> getContents() {
+        return this.getContents(null);
+    }
+
+    public List<ContentDTO.Response> getContents(User user) {
         List<Content> contents = contentRepository.findAll();
 
         return contents.stream()
-                .map(ContentDTO.Response::from)
+                .map(content -> buildUserBasedResponse(content, user))
                 .collect(Collectors.toList());
     }
 
     public ContentDTO.Response getContent(Long contentId) {
+        return this.getContent(null, contentId);
+    }
+
+    public ContentDTO.Response getContent(User user, Long contentId) {
         // TODO: 에러코드 추가
         Content content = contentRepository.findById(contentId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 컨텐츠가 존재하지 않습니다. id=" + contentId));
@@ -72,7 +80,7 @@ public class ContentService {
         content.increaseViewCount();
         contentRepository.save(content);
 
-        return ContentDTO.Response.from(content);
+        return buildUserBasedResponse(content, user);
     }
 
     public void deleteContent(Long contentId) {
@@ -91,5 +99,14 @@ public class ContentService {
                             contentLikeRepository.save(contentLike);
                         }
                 );
+    }
+
+    private ContentDTO.Response buildUserBasedResponse(Content content, User user) {
+        ContentDTO.Response response = ContentDTO.Response.from(content);
+        boolean isLiked = contentLikeRepository.existsByUserAndContent(user, content); // TODO: when user is null
+        if(isLiked) {
+            response.updateIsLike();
+        }
+        return response;
     }
 }

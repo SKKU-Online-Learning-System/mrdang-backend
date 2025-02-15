@@ -49,6 +49,8 @@ public class ContentDTO {
         private Long viewCount;
         private Long likeCount;
 
+        private Boolean isLike;
+
         /* Custom fields */
         @Nullable
         private String youtubeVideoId;
@@ -66,7 +68,12 @@ public class ContentDTO {
                     .viewCount(content.getViewCount())
                     .likeCount((long) content.getContentLikes().size())
                     .youtubeVideoId(content.getYoutubeVideoId())
+                    .isLike(false)
                     .build();
+        }
+
+        public void updateIsLike() {
+            this.isLike = true;
         }
     }
 }

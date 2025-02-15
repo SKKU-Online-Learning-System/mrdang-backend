@@ -11,4 +11,6 @@ import java.util.Optional;
 @Repository
 public interface ContentLikeRepository extends JpaRepository<ContentLike, Long> {
     Optional<ContentLike> findByUserAndContent(User user, Content content);
+    boolean existsByUserAndContent(User user, Content content);
+
 }

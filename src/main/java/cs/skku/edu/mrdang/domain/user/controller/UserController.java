@@ -3,7 +3,7 @@ package cs.skku.edu.mrdang.domain.user.controller;
 import cs.skku.edu.mrdang.domain.user.dto.UserDTO;
 import cs.skku.edu.mrdang.domain.user.entity.User;
 import cs.skku.edu.mrdang.domain.user.service.UserService;
-import cs.skku.edu.mrdang.security.annotation.Auth;
+import cs.skku.edu.mrdang.security.annotation.AuthenticationPrincipal;
 import cs.skku.edu.mrdang.security.annotation.MasterOnly;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +29,7 @@ public class UserController {
     @MasterOnly
     @PatchMapping()
     public ResponseEntity<UserDTO.Response> changeRole(
-            @Auth User user,
+            @AuthenticationPrincipal User user,
             @RequestBody UserDTO.ChangeRoleRequest request
     ) {
         UserDTO.Response response =  userService.changeRole(request);

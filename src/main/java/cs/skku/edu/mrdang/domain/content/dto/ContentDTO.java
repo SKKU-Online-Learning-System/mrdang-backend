@@ -23,6 +23,7 @@ public class ContentDTO {
         private String title;
         private String description;
         private String author;
+        private Long duration;
 
         private String link;
         private String thumbnailUrl;
@@ -41,6 +42,7 @@ public class ContentDTO {
         private String title;
         private String description;
         private String author;
+        private Long duration;
 
         private String link;
         private String thumbnailUrl;
@@ -62,6 +64,7 @@ public class ContentDTO {
                     .title(content.getTitle())
                     .description(content.getDescription())
                     .author(content.getAuthor())
+                    .duration(content.getDuration())
                     .link(content.getLink())
                     .thumbnailUrl(content.getThumbnailUrl())
                     .tags(content.getContentTags().stream().map(ContentTag::getTag).map(Tag::getName).collect(Collectors.toList()))

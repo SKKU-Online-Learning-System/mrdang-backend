@@ -1,6 +1,7 @@
 package cs.skku.edu.mrdang.domain.content.service;
 
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
+import cs.skku.edu.mrdang.domain.content.dto.ContentMapper;
 import cs.skku.edu.mrdang.domain.content.entity.Content;
 import cs.skku.edu.mrdang.domain.content.entity.ContentLike;
 import cs.skku.edu.mrdang.domain.content.entity.ContentTag;
@@ -29,7 +30,7 @@ public class ContentService {
     private final ContentLikeRepository contentLikeRepository;
 
     public Long createContent(ContentDTO.CreateRequest request) {
-        Content content = Content.from(request);
+        Content content = ContentMapper.request2Content(request);
 
         Content saved = contentRepository.save(content);
         saveTags(saved, request.getTags());

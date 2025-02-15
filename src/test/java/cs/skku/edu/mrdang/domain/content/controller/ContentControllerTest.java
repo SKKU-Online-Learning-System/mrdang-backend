@@ -22,6 +22,7 @@ import static cs.skku.edu.mrdang.domain.common.CommonSnippet.StudentCookie;
 import static cs.skku.edu.mrdang.domain.common.JWTFixture.USER_TOKEN;
 import static cs.skku.edu.mrdang.domain.content.fixture.ContentFixture.CONTENT;
 import static cs.skku.edu.mrdang.domain.content.fixture.ContentFixture.CONTENTS;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders.*;
@@ -71,7 +72,7 @@ class ContentControllerTest extends BaseControllerTest {
     @DisplayName("API 문서 - 모든 컨텐츠 가져오기")
     @Test
     void getContents() throws Exception {
-        when(contentService.getContents()).thenReturn(
+        when(contentService.getContents(any())).thenReturn(
                 CONTENTS.stream().map(ContentDTO.Response::from).collect(Collectors.toList())
         );
 
@@ -91,7 +92,7 @@ class ContentControllerTest extends BaseControllerTest {
     void getContent() throws Exception {
         Long id = CONTENT.getId();
 
-        when(contentService.getContent(id)).thenReturn(ContentDTO.Response.from(CONTENT));
+        when(contentService.getContent(any(),any())).thenReturn(ContentDTO.Response.from(CONTENT));
 
         mockMvc.perform(get("/contents/{contentId}", id)
                         .contentType(MediaType.APPLICATION_JSON)
@@ -127,6 +128,29 @@ class ContentControllerTest extends BaseControllerTest {
                                 parameterWithName("contentId").description("삭제할 컨텐츠 ID")
                         ),
                         AdminCookie()
+                ));
+    }
+
+    @DisplayName("API 문서 - 컨텐츠 좋아요 업데이트")
+    @Test
+    void updateLikes() throws Exception {
+        UserToken userToken = USER_TOKEN;
+
+        Long id = CONTENT.getId();
+
+        mockMvc.perform(patch("/contents/{contentId}/likes", id)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .cookie(new Cookie("access-token", userToken.getAccessToken()))
+                        .cookie(new Cookie("refresh-token", userToken.getRefreshToken()))
+                )
+                .andExpect(status().isNoContent())
+                .andDo(print())
+                .andDo(document(
+                        "like-content",
+                        pathParameters(
+                                parameterWithName("contentId").description("좋아요 누를 컨텐츠 ID")
+                        ),
+                        StudentCookie()
                 ));
     }
 }

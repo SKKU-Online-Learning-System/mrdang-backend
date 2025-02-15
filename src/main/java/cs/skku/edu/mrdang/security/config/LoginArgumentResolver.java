@@ -5,7 +5,7 @@ import cs.skku.edu.mrdang.domain.user.entity.User;
 import cs.skku.edu.mrdang.domain.user.service.UserService;
 import cs.skku.edu.mrdang.exception.ErrorCode;
 import cs.skku.edu.mrdang.exception.RestException;
-import cs.skku.edu.mrdang.security.annotation.Auth;
+import cs.skku.edu.mrdang.security.annotation.AuthenticationPrincipal;
 import cs.skku.edu.mrdang.security.jwt.JWTUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
@@ -28,7 +28,7 @@ public class LoginArgumentResolver implements HandlerMethodArgumentResolver {
 
     @Override
     public boolean supportsParameter(MethodParameter parameter) {
-        return parameter.withContainingClass(User.class).hasParameterAnnotation(Auth.class);
+        return parameter.withContainingClass(User.class).hasParameterAnnotation(AuthenticationPrincipal.class);
     }
 
     @Override
@@ -42,17 +42,20 @@ public class LoginArgumentResolver implements HandlerMethodArgumentResolver {
         if (request== null) {
             throw new RestException(ErrorCode.FAIL_TO_VALIDATE_TOKEN);
         }
+        try {
+            String accessToken = extractAccessToken(request);
+            String refreshToken = extractRefreshToken(request);
 
-        String accessToken = extractAccessToken(request);
-        String refreshToken = extractRefreshToken(request);
+            jwtUtil.validateAccessToken(accessToken);
+            jwtUtil.validateRefreshToken(refreshToken);
 
-        jwtUtil.validateAccessToken(accessToken);
-        jwtUtil.validateRefreshToken(refreshToken);
+            String glsId = jwtUtil.getSubject(accessToken);
 
-        String glsId = jwtUtil.getSubject(accessToken);
-
-        User user = userService.getUserByGlsId(glsId);
-        return user;
+            User user = userService.getUserByGlsId(glsId);
+            return user;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     private String extractAccessToken(HttpServletRequest request) {

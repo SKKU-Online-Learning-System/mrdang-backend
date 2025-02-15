@@ -23,12 +23,16 @@ public class Content extends BaseTimeEntity {
     private ContentType type;
 
     private String title;
+
+    @Column(columnDefinition = "LONGTEXT")
     private String description;
     private String author;
 
     private String link;
-    private String thumbnail_url;
+    private String thumbnailUrl;
+    private String youtubeVideoId;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Tag> tags = new HashSet<>();
+    @Builder.Default
+    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ContentTag> contentTags = new HashSet<>();
 }

@@ -2,15 +2,16 @@ package cs.skku.edu.mrdang.domain.content.service;
 
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.entity.Content;
+import cs.skku.edu.mrdang.domain.content.entity.ContentTag;
 import cs.skku.edu.mrdang.domain.content.entity.Tag;
 import cs.skku.edu.mrdang.domain.content.repository.ContentRepository;
+import cs.skku.edu.mrdang.domain.content.repository.ContentTagRepository;
 import cs.skku.edu.mrdang.domain.content.repository.TagRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,7 @@ public class ContentService {
 
     private final ContentRepository contentRepository;
     private final TagRepository tagRepository;
+    private final ContentTagRepository contentTagRepository;
 
     public Long createContent(ContentDTO.CreateRequest request) {
         Content content = request.toEntity();
@@ -37,12 +39,15 @@ public class ContentService {
         // 중복 태그 발생 방지
         for(String tagName : tagNames) {
             Tag tag = tagRepository.findByName(tagName)
-                    .orElseGet(() -> tagRepository.save(Tag.builder().name(tagName).contents(new HashSet<>()).build()));
+                    .orElseGet(() -> tagRepository.save(Tag.builder().name(tagName).build()));
             tags.add(tag);
         }
         for(Tag tag : tags) {
-            tag.addContent(content);
-            tagRepository.save(tag);
+            ContentTag contentTag = ContentTag.builder()
+                    .content(content)
+                    .tag(tag)
+                    .build();
+            contentTagRepository.save(contentTag);
         }
     }
 

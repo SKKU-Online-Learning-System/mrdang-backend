@@ -13,7 +13,8 @@ public class ContentMapper {
                 .description(youtube.getDescription())
                 .author(youtube.getAuthor())
                 .link(youtube.getLink())
-                .thumbnail_url(youtube.getThumbnail())
+                .thumbnailUrl(youtube.getThumbnail())
+                .youtubeVideoId(youtube.getYoutubeVideoId())
                 .build();
     }
 }

@@ -1,11 +1,11 @@
 package cs.skku.edu.mrdang.domain.content.entity;
 
 import cs.skku.edu.mrdang.util.BaseTimeEntity;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.*;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Builder
 @Getter
@@ -19,12 +19,4 @@ public class Tag extends BaseTimeEntity {
     private Long id;
 
     private String name;
-
-    @ManyToMany
-    private Set<Content> contents = new HashSet<>();
-
-    public void addContent(Content content) {
-        contents.add(content);
-        content.getTags().add(this);
-    }
 }

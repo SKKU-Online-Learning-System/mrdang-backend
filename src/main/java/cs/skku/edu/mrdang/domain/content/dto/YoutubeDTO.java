@@ -19,6 +19,7 @@ public class YoutubeDTO {
         private String thumbnail;
         private String type;
         private List<String> tags;
+        private Long duration;
     }
 
 }

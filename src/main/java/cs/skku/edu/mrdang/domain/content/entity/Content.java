@@ -27,6 +27,7 @@ public class Content extends BaseTimeEntity {
     @Column(columnDefinition = "LONGTEXT")
     private String description;
     private String author;
+    private Long duration; // stored in second(1365 = 22:45)
 
     private String link;
     private String thumbnailUrl;

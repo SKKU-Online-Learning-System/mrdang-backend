@@ -31,6 +31,7 @@ public class ContentFixture {
                     )
             )
             .youtubeVideoId("BAHaRkTgiV0")
+            .viewCount(0L)
             .build();
 
 
@@ -48,6 +49,7 @@ public class ContentFixture {
                             ContentTag.builder().id(5L).tag(tag5).build()
                     )
             )
+            .viewCount(0L)
             .build();
 
 

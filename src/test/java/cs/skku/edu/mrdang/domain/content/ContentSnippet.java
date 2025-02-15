@@ -30,6 +30,7 @@ public class ContentSnippet {
                 fieldWithPath("link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
                 fieldWithPath("thumbnailUrl").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL"),
                 fieldWithPath("tags").type(JsonFieldType.ARRAY).description("컨텐츠 태그"),
+                fieldWithPath("viewCount").type(JsonFieldType.NUMBER).description("컨텐츠 조회수"),
                 fieldWithPath("youtubeVideoId").type(JsonFieldType.STRING).description("유튜브 비디오 ID").optional()
         );
     }
@@ -44,6 +45,7 @@ public class ContentSnippet {
                 fieldWithPath("[].link").type(JsonFieldType.STRING).description("컨텐츠 링크"),
                 fieldWithPath("[].thumbnailUrl").type(JsonFieldType.STRING).description("컨텐츠 썸네일 URL"),
                 fieldWithPath("[].tags").type(JsonFieldType.ARRAY).description("컨텐츠 태그"),
+                fieldWithPath("[].viewCount").type(JsonFieldType.NUMBER).description("컨텐츠 조회수"),
                 fieldWithPath("[].youtubeVideoId").type(JsonFieldType.STRING).description("유튜브 비디오 ID").optional()
         );
     }

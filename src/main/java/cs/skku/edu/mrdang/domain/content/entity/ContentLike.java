@@ -1,16 +1,16 @@
 package cs.skku.edu.mrdang.domain.content.entity;
 
+import cs.skku.edu.mrdang.domain.user.entity.User;
 import cs.skku.edu.mrdang.util.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
-
 
 @Builder
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
-public class ContentTag extends BaseTimeEntity {
+public class ContentLike extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +20,13 @@ public class ContentTag extends BaseTimeEntity {
     private Content content;
 
     @ManyToOne
-    @JoinColumn(name = "tag_id")
-    private Tag tag;
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public static ContentLike of(Content content, User user) {
+        return ContentLike.builder()
+                .content(content)
+                .user(user)
+                .build();
+    }
 }

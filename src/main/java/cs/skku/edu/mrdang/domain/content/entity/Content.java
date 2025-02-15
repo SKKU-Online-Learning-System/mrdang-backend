@@ -39,6 +39,10 @@ public class Content extends BaseTimeEntity {
     @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<ContentTag> contentTags = new HashSet<>();
 
+    @Builder.Default
+    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ContentLike> contentLikes = new HashSet<>();
+
     public static Content from(ContentDTO.CreateRequest request) {
         return Content.builder()
                 .type(request.getType())
@@ -50,6 +54,7 @@ public class Content extends BaseTimeEntity {
                 .youtubeVideoId(request.getType() == ContentType.YOUTUBE ? parseYoutubeVideoId(request.getLink()) : null)
                 .viewCount(0L)
                 .contentTags(new HashSet<>())
+                .contentLikes(new HashSet<>())
                 .build();
     }
 

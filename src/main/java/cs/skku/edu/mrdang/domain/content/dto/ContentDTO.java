@@ -46,10 +46,14 @@ public class ContentDTO {
         private String thumbnailUrl;
         private List<String> tags;
 
+        private Long viewCount;
+        private Long likeCount;
+
+        private Boolean isLike;
+
         /* Custom fields */
         @Nullable
         private String youtubeVideoId;
-        private Long viewCount;
 
         public static Response from(Content content) {
             return Response.builder()
@@ -61,9 +65,15 @@ public class ContentDTO {
                     .link(content.getLink())
                     .thumbnailUrl(content.getThumbnailUrl())
                     .tags(content.getContentTags().stream().map(ContentTag::getTag).map(Tag::getName).collect(Collectors.toList()))
-                    .youtubeVideoId(content.getYoutubeVideoId())
                     .viewCount(content.getViewCount())
+                    .likeCount((long) content.getContentLikes().size())
+                    .youtubeVideoId(content.getYoutubeVideoId())
+                    .isLike(false)
                     .build();
+        }
+
+        public void updateIsLike() {
+            this.isLike = true;
         }
     }
 }

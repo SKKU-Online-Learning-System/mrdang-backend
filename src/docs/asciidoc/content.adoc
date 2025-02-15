@@ -30,3 +30,10 @@ operation::get-content[snippets='http-request,response-body']
 `DELETE /contents/{contentId}` 요청을 사용해서 특정 컨텐츠를 삭제할 수 있다.
 
 operation::delete-content[snippets='request-cookies,http-request,http-response']
+
+[[resource-contents-lioke]]
+=== `PATCH /contents/{contentId}/likes` 컨텐츠 좋아요
+
+`PATCH /contents/{contentId}/likes` 요청을 사용해서 좋아요 누르기/취소할 수 있다. (좋아요인 상태로 다시 요청 보내면 취소됨.)
+
+operation::like-content[snippets='request-cookies,http-request,http-response']

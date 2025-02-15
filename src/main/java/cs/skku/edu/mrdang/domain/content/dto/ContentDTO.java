@@ -1,6 +1,7 @@
 package cs.skku.edu.mrdang.domain.content.dto;
 
 import cs.skku.edu.mrdang.domain.content.entity.Content;
+import cs.skku.edu.mrdang.domain.content.entity.ContentTag;
 import cs.skku.edu.mrdang.domain.content.entity.ContentType;
 import cs.skku.edu.mrdang.domain.content.entity.Tag;
 import lombok.AllArgsConstructor;
@@ -8,7 +9,6 @@ import lombok.Builder;
 import lombok.Getter;
 import org.springframework.lang.Nullable;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +39,6 @@ public class ContentDTO {
                     .author(author)
                     .link(link)
                     .thumbnailUrl(thumbnailUrl)
-                    .tags(new HashSet<>())
                     .youtubeVideoId(youtubeVideoId)
                     .build();
         }
@@ -75,7 +74,7 @@ public class ContentDTO {
                     .author(content.getAuthor())
                     .link(content.getLink())
                     .thumbnailUrl(content.getThumbnailUrl())
-                    .tags(content.getTags().stream().map(Tag::getName).collect(Collectors.toList()))
+                    .tags(content.getContentTags().stream().map(ContentTag::getTag).map(Tag::getName).collect(Collectors.toList()))
                     .youtubeVideoId(content.getYoutubeVideoId())
                     .build();
         }

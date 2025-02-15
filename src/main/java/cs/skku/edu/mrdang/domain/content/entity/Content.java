@@ -24,7 +24,7 @@ public class Content extends BaseTimeEntity {
 
     private String title;
 
-    @Lob
+    @Column(columnDefinition = "LONGTEXT")
     private String description;
     private String author;
 
@@ -33,6 +33,6 @@ public class Content extends BaseTimeEntity {
     private String youtubeVideoId;
 
     @Builder.Default
-    @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Tag> tags = new HashSet<>();
+    @OneToMany(mappedBy = "content", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<ContentTag> contentTags = new HashSet<>();
 }

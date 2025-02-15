@@ -44,8 +44,8 @@ public class TagTest {
                 .tags(List.of("성균관대학교", "소프트웨어융합대학", "안잔다"))
                 .build();
 
-        contentService.createContent(request);
-        contentService.createContent(request2);
+        Long contentId1 = contentService.createContent(request);
+        Long contentId2 = contentService.createContent(request2);
 
 
         List<Tag> tags = tagRepository.findAll();
@@ -54,5 +54,7 @@ public class TagTest {
             System.out.println(tag.getName());
         }
 
+        contentService.deleteContent(contentId1);
+        contentService.deleteContent(contentId2);
     }
 }

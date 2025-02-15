@@ -2,6 +2,8 @@ package cs.skku.edu.mrdang.domain.content.controller;
 
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.service.ContentService;
+import cs.skku.edu.mrdang.domain.user.entity.User;
+import cs.skku.edu.mrdang.security.annotation.Auth;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +39,13 @@ public class ContentController {
         ContentDTO.Response response = contentService.getContent(contentId);
 
         return ResponseEntity.ok().body(response);
+    }
+
+    @PutMapping("/{contentId}")
+    public ResponseEntity<Void> updateContent(@Auth User user, @PathVariable Long contentId) {
+        contentService.updateLike(user, contentId);
+
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{contentId}")

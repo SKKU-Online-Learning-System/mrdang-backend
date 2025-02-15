@@ -2,11 +2,14 @@ package cs.skku.edu.mrdang.domain.content.service;
 
 import cs.skku.edu.mrdang.domain.content.dto.ContentDTO;
 import cs.skku.edu.mrdang.domain.content.entity.Content;
+import cs.skku.edu.mrdang.domain.content.entity.ContentLike;
 import cs.skku.edu.mrdang.domain.content.entity.ContentTag;
 import cs.skku.edu.mrdang.domain.content.entity.Tag;
+import cs.skku.edu.mrdang.domain.content.repository.ContentLikeRepository;
 import cs.skku.edu.mrdang.domain.content.repository.ContentRepository;
 import cs.skku.edu.mrdang.domain.content.repository.ContentTagRepository;
 import cs.skku.edu.mrdang.domain.content.repository.TagRepository;
+import cs.skku.edu.mrdang.domain.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +26,7 @@ public class ContentService {
     private final ContentRepository contentRepository;
     private final TagRepository tagRepository;
     private final ContentTagRepository contentTagRepository;
+    private final ContentLikeRepository contentLikeRepository;
 
     public Long createContent(ContentDTO.CreateRequest request) {
         Content content = Content.from(request);
@@ -75,4 +79,17 @@ public class ContentService {
         contentRepository.deleteById(contentId);
     }
 
+    public void updateLike(User user, Long contentId) {
+        Content content = contentRepository.findById(contentId)
+                .orElseThrow(() -> new IllegalArgumentException("해당 컨텐츠가 존재하지 않습니다. id=" + contentId));
+
+        contentLikeRepository.findByUserAndContent(user, content)
+                .ifPresentOrElse(
+                        (found) -> contentLikeRepository.delete(found),
+                        () -> {
+                            ContentLike contentLike = ContentLike.of(content, user);
+                            contentLikeRepository.save(contentLike);
+                        }
+                );
+    }
 }

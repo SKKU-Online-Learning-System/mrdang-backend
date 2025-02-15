@@ -27,9 +27,6 @@ public class ContentDTO {
         private String link;
         private String thumbnailUrl;
         private List<String> tags;
-
-        @Nullable
-        private String youtubeVideoId;
     }
 
     @Getter

@@ -47,9 +47,14 @@ public class Content extends BaseTimeEntity {
                 .author(request.getAuthor())
                 .link(request.getLink())
                 .thumbnailUrl(request.getThumbnailUrl())
-                .youtubeVideoId(request.getYoutubeVideoId())
+                .youtubeVideoId(request.getType() == ContentType.YOUTUBE ? parseYoutubeVideoId(request.getLink()) : null)
                 .viewCount(0L)
                 .contentTags(new HashSet<>())
                 .build();
+    }
+
+    private static String parseYoutubeVideoId(String link) {
+        String[] split = link.split("v=");
+        return split[1];
     }
 }

@@ -53,6 +53,10 @@ public class Content extends BaseTimeEntity {
                 .build();
     }
 
+    public void increaseViewCount() {
+        this.viewCount++;
+    }
+
     private static String parseYoutubeVideoId(String link) {
         String[] split = link.split("v=");
         return split[1];

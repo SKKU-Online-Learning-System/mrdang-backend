@@ -65,6 +65,9 @@ public class ContentService {
         Content content = contentRepository.findById(contentId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 컨텐츠가 존재하지 않습니다. id=" + contentId));
 
+        content.increaseViewCount();
+        contentRepository.save(content);
+
         return ContentDTO.Response.from(content);
     }
 

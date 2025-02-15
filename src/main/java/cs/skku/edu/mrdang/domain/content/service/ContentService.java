@@ -25,7 +25,7 @@ public class ContentService {
     private final ContentTagRepository contentTagRepository;
 
     public Long createContent(ContentDTO.CreateRequest request) {
-        Content content = request.toEntity();
+        Content content = Content.from(request);
 
         Content saved = contentRepository.save(content);
         saveTags(saved, request.getTags());
@@ -64,6 +64,9 @@ public class ContentService {
         // TODO: 에러코드 추가
         Content content = contentRepository.findById(contentId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 컨텐츠가 존재하지 않습니다. id=" + contentId));
+
+        content.increaseViewCount();
+        contentRepository.save(content);
 
         return ContentDTO.Response.from(content);
     }

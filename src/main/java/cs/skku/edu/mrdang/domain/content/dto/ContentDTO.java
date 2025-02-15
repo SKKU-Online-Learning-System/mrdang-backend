@@ -27,21 +27,6 @@ public class ContentDTO {
         private String link;
         private String thumbnailUrl;
         private List<String> tags;
-
-        @Nullable
-        private String youtubeVideoId;
-
-        public Content toEntity() {
-            return Content.builder()
-                    .type(type)
-                    .title(title)
-                    .description(description)
-                    .author(author)
-                    .link(link)
-                    .thumbnailUrl(thumbnailUrl)
-                    .youtubeVideoId(youtubeVideoId)
-                    .build();
-        }
     }
 
     @Getter
@@ -64,6 +49,7 @@ public class ContentDTO {
         /* Custom fields */
         @Nullable
         private String youtubeVideoId;
+        private Long viewCount;
 
         public static Response from(Content content) {
             return Response.builder()
@@ -76,6 +62,7 @@ public class ContentDTO {
                     .thumbnailUrl(content.getThumbnailUrl())
                     .tags(content.getContentTags().stream().map(ContentTag::getTag).map(Tag::getName).collect(Collectors.toList()))
                     .youtubeVideoId(content.getYoutubeVideoId())
+                    .viewCount(content.getViewCount())
                     .build();
         }
     }
